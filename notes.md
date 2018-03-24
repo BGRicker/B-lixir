@@ -28,3 +28,29 @@ elixir's irb
     iex -S mix
 
 `recompile` to reload! iex
+
+
+```def create_deck do
+  ["Ace", "Two", "Three"]
+end```
+
+OO Approach
+- methods like shuffle, save, load would work on local instance variable of Deck
+- operate on own local instance variable @cards
+
+deck = Deck.new
+deck.cards #=> [Card1, Card2, Card3]
+deck.shuffle #=> [Card2, Card1, Card3]
+deck.deal #=> Deck[Card1]
+
+# deck class has a local collection of cards
+# calling a method operates on local collection
+
+FP Approach
+no concept of class or instance of class, no instance variable
+no this.cards, this.deck
+Cards module is its own thing, no copies
+create_deck returns an array of strings
+shuffling, pass in array of strings, return shuffled array of strings
+save function takes string and saves string with path to saved file
+load takes path to saved file, reads string, outputs string

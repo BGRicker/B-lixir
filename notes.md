@@ -90,3 +90,24 @@ error handling with case statement:
       :error -> "That file doesn't exist"
     end
   end
+
+matching with hardcoded value
+["red", color] = ["red", "blue"]
+- red is equal to red, assign "blue" to color
+
+["red", color] = ["purple", "blue"]
+- error, no match of right hand side value, nothing gets assigned
+
+def load(filename) do
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term binary
+      {:error, _reason} -> "That file doesn't exist"
+    end
+end
+
+1. look at result of File.read(filename)
+2. pattern match against case statement
+3. if first result is tuple with :ok as first element,compare result with tuple
+4. take second element of tuple and assign 'binary' variable with result
+
+underscore before variable name denotes that we don't care about that value

@@ -53,4 +53,27 @@ Cards module is its own thing, no copies
 create_deck returns an array of strings
 shuffling, pass in array of strings, return shuffled array of strings
 save function takes string and saves string with path to saved file
-load takes path to saved file, reads string, outputs string
+load takes path to saved file, reads string, outputs string 
+
+for suit <- suits do
+    suit
+end
+
+for all the elements in suits array, do this (suit). Assign each element in suits to the word |suit| Everything in do block gets returned into a new array like a map
+
+Enum.split splits array into tuples. {first_array, second_arary}
+each array has a special meaning, like cards you're dealt and cards you're not dealt.
+
+Cards.deal(deck, 5) #=> { hand: [], deck: [] }
+
+"pattern matching is Elixir's replacement for variable assignment"
+    - { hand, rest_of_deck } = Cards.deal(deck, 5)
+    - assign this tuple to the result on the right, which returns a tuple
+    - color = ["red"] # matches list, entire list assigned to color
+    - [ color ] = ["red"] # now color matches "red" string inside array
+    - [color1, color2] = ["red", "blue"]
+    - [color1, color2, color3] = ["red", "blue"] #=> no match on right hand side
+
+we write elixir, gets transpiled into Erlang, gets compiled and executed on BEAM
+
+:erlang.term_to_binary(deck) #=> :erlang calls erlang code

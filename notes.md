@@ -77,3 +77,16 @@ Cards.deal(deck, 5) #=> { hand: [], deck: [] }
 we write elixir, gets transpiled into Erlang, gets compiled and executed on BEAM
 
 :erlang.term_to_binary(deck) #=> :erlang calls erlang code
+
+case in elixir is a mix of if statements and pattern matching
+
+error handling with case statement:
+
+  def load(filename) do
+    {status, binary} = File.read(filename)
+
+    case status do
+      :ok -> :erlang.binary_to_term binary
+      :error -> "That file doesn't exist"
+    end
+  end
